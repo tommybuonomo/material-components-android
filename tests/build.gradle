@@ -27,7 +27,6 @@ android {
     main.setRoot('./')
     main.java.srcDir 'javatests'
     main.java.excludes = [
-      '**/animation/**',
       '**/build/**',
     ]
     main.manifest.srcFile 'javatests/com/google/android/material/AndroidManifest.xml'
