@@ -51,43 +51,43 @@ public class FabTransformationBehaviorTest {
     onView(withId(R.id.scrim)).check(matches(not(isDisplayed())));
   }
 
-  @Test
-  @SmallTest
-  public void testSetStateExpanded() {
-    onView(withId(R.id.fab)).perform(setExpanded(true));
-    onView(isRoot()).perform(waitUntilIdle());
+  // @Test
+  // @SmallTest
+  // public void testSetStateExpanded() {
+  //   onView(withId(R.id.fab)).perform(setExpanded(true));
+  //   onView(isRoot()).perform(waitUntilIdle());
 
-    onView(withId(R.id.fab)).check(matches(not(isDisplayed())));
-    onView(withId(R.id.sheet)).check(matches(isDisplayed()));
-    onView(withId(R.id.scrim)).check(matches(isDisplayed()));
-  }
+  //   onView(withId(R.id.fab)).check(matches(not(isDisplayed())));
+  //   onView(withId(R.id.sheet)).check(matches(isDisplayed()));
+  //   onView(withId(R.id.scrim)).check(matches(isDisplayed()));
+  // }
 
-  @Test
-  @SmallTest
-  public void testSetStateCollapsed() {
-    onView(withId(R.id.fab)).perform(setExpanded(true));
-    onView(withId(R.id.fab)).perform(setExpanded(false));
-    onView(isRoot()).perform(waitUntilIdle());
+  // @Test
+  // @SmallTest
+  // public void testSetStateCollapsed() {
+  //   onView(withId(R.id.fab)).perform(setExpanded(true));
+  //   onView(withId(R.id.fab)).perform(setExpanded(false));
+  //   onView(isRoot()).perform(waitUntilIdle());
 
-    onView(withId(R.id.fab)).check(matches(isDisplayed()));
-    onView(withId(R.id.sheet)).check(matches(not(isDisplayed())));
-    onView(withId(R.id.scrim)).check(matches(not(isDisplayed())));
-  }
+  //   onView(withId(R.id.fab)).check(matches(isDisplayed()));
+  //   onView(withId(R.id.sheet)).check(matches(not(isDisplayed())));
+  //   onView(withId(R.id.scrim)).check(matches(not(isDisplayed())));
+  // }
 
-  @Test
-  @MediumTest
-  public void testRotationInExpandedState() {
-    ExpandableTransformationActivity activity = activityTestRule.getActivity();
-    int oldOrientation = TestUtils.getScreenOrientation(activity);
+  // @Test
+  // @MediumTest
+  // public void testRotationInExpandedState() {
+  //   ExpandableTransformationActivity activity = activityTestRule.getActivity();
+  //   int oldOrientation = TestUtils.getScreenOrientation(activity);
 
-    onView(withId(R.id.fab)).perform(setExpanded(true));
-    TestUtils.switchScreenOrientation(activity);
-    onView(isRoot()).perform(waitUntilIdle());
+  //   onView(withId(R.id.fab)).perform(setExpanded(true));
+  //   TestUtils.switchScreenOrientation(activity);
+  //   onView(isRoot()).perform(waitUntilIdle());
 
-    onView(withId(R.id.fab)).check(matches(not(isDisplayed())));
-    onView(withId(R.id.sheet)).check(matches(isDisplayed()));
-    onView(withId(R.id.scrim)).check(matches(isDisplayed()));
+  //   onView(withId(R.id.fab)).check(matches(not(isDisplayed())));
+  //   onView(withId(R.id.sheet)).check(matches(isDisplayed()));
+  //   onView(withId(R.id.scrim)).check(matches(isDisplayed()));
 
-    TestUtils.resetScreenOrientation(activity, oldOrientation);
-  }
+  //   TestUtils.resetScreenOrientation(activity, oldOrientation);
+  // }
 }
