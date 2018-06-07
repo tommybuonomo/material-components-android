@@ -31,9 +31,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    app:backgroundTint="@color/cat_color_primary"
+    app:backgroundTint="@color/cat_color_secondary"
     app:cradleMode="cut"
     app:fabCradleMargin="16dp"
+    app:fabCradleRoundedCornerRadius="24dp"
     app:navigationContentDescription="@string/cat_bottomappbar_navigation_button_content_description"
     app:navigationIcon="@drawable/ic_drawer_menu_24px"
     />

@@ -26,11 +26,11 @@ import com.google.android.material.shape.ShapePath;
  * Top edge treatment for the bottom app bar which "cradles" a circular {@link
  * FloatingActionButton}.
  *
- * <p>This edge features a downward semi-circular cutout from the edge line. The two corners
- * created by the cutout can optionally be rounded. The circular cutout can also support a
- * vertically offset FloatingActionButton; i.e., the cut-out need not be a perfect semi-circle, but
- * could be an arc of less than 180 degrees that does not start or finish with a vertical path. This
- * vertical offset must be positive.
+ * <p>This edge features a downward semi-circular cutout from the edge line. The two corners created
+ * by the cutout can optionally be rounded. The circular cutout can also support a vertically offset
+ * FloatingActionButton; i.e., the cut-out need not be a perfect semi-circle, but could be an arc of
+ * less than 180 degrees that does not start or finish with a vertical path. This vertical offset
+ * must be positive.
  */
 public class BottomAppBarTopEdgeTreatment extends EdgeTreatment {
 
@@ -50,10 +50,10 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment {
   /**
    * @param fabMargin the margin in pixels between the cutout and the fab.
    * @param roundedCornerRadius the radius, in pixels, of the rounded corners created by the cutout.
-   * A value of 0 will produce a sharp cutout.
+   *     A value of 0 will produce a sharp cutout.
    * @param cradleVerticalOffset vertical offset, in pixels, of the {@link FloatingActionButton}
-   * being cradled. An offset of 0 indicates the vertical center of the {@link
-   * FloatingActionButton}
+   *     being cradled. An offset of 0 indicates the vertical center of the {@link
+   *     FloatingActionButton}
    */
   public BottomAppBarTopEdgeTreatment(
       float fabMargin, float roundedCornerRadius, float cradleVerticalOffset, int cradleMode) {
@@ -111,9 +111,9 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment {
 
     if (cradleMode == CRADLE_MODE_CUT) {
       // Draw the starting line up to the left rounded corner.
-      shapePath.lineTo(/* x= */ leftRoundedCornerCircleX, /* y= */0);
-      shapePath.lineTo(/* x= */ middle, /* y= */cradleRadius - verticalOffset);
-      shapePath.lineTo(/* x= */ rightRoundedCornerCircleX, /* y= */0);
+      shapePath.lineTo(/* x= */ middle - cradleRadius, /* y= */ 0);
+      shapePath.lineTo(/* x= */ middle, /* y= */ cradleRadius - verticalOffset);
+      shapePath.lineTo(/* x= */ middle + cradleRadius, /* y= */ 0);
     } else {
 
       // Draw the arc for the left rounded corner circle. The bounding box is the area around the
