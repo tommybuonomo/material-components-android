@@ -25,18 +25,25 @@
       <!-- Mode that aligns the fab to the end. -->
       <enum name="end" value="1"/>
     </attr>
+    <attr name="cradleMode">
+      <!-- Mode that draw a round cradle for fab -->
+      <enum name="round" value="0"/>
+      <!-- Mode that draw a cut cradle for fab -->
+      <enum name="cut" value="1"/>
+    </attr>
+
     <!-- Whether the fab should start attached to the BottomAppBar. -->
-    <attr name="fabAttached" format="boolean"/>
+    <attr format="boolean" name="fabAttached"/>
     <!-- The margin between the semi-circular cradle for the fab and the fab. -->
-    <attr name="fabCradleMargin" format="dimension"/>
+    <attr format="dimension" name="fabCradleMargin"/>
     <!-- The radius of the rounded corners on each side of the cradle. -->
-    <attr name="fabCradleRoundedCornerRadius" format="dimension"/>
+    <attr format="dimension" name="fabCradleRoundedCornerRadius"/>
     <!-- The vertical offset between the fab from the cradle. -->
-    <attr name="fabCradleVerticalOffset" format="dimension"/>
+    <attr format="dimension" name="fabCradleVerticalOffset"/>
     <!-- Whether the BottomAppBar should hide when a NestedScrollView is scrolled. -->
-    <attr name="hideOnScroll" format="boolean"/>
+    <attr format="boolean" name="hideOnScroll"/>
   </declare-styleable>
 
   <!-- Style to use for BottomAppBar in this theme. -->
-  <attr name="bottomAppBarStyle" format="reference"/>
+  <attr format="reference" name="bottomAppBarStyle"/>
 </resources>

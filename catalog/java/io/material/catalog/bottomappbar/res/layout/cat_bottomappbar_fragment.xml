@@ -16,43 +16,53 @@
   -->
 
 <android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/coordinator_layout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  >
 
   <include layout="@layout/cat_bottomappbar_content"/>
 
   <com.google.android.material.bottomappbar.BottomAppBar
-      android:id="@+id/bar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom"
-      app:navigationIcon="@drawable/ic_drawer_menu_24px"
-      app:navigationContentDescription="@string/cat_bottomappbar_navigation_button_content_description"/>
+    android:id="@+id/bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    app:backgroundTint="@color/cat_color_primary"
+    app:cradleMode="cut"
+    app:fabCradleMargin="16dp"
+    app:navigationContentDescription="@string/cat_bottomappbar_navigation_button_content_description"
+    app:navigationIcon="@drawable/ic_drawer_menu_24px"
+    />
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
-      android:id="@+id/fab"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:contentDescription="@string/cat_bottomappbar_fab_button_content_description"
-      app:layout_anchor="@id/bar"
-      app:srcCompat="@drawable/ic_add_24px"/>
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/cat_bottomappbar_fab_button_content_description"
+    app:layout_anchor="@id/bar"
+    app:srcCompat="@drawable/ic_add_24px"
+    />
 
   <FrameLayout
-      android:id="@+id/bottom_drawer"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:elevation="16dp"
-      app:behavior_hideable="true"
-      app:layout_behavior="@string/bottom_sheet_behavior">
+    android:id="@+id/bottom_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="16dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:visibility="gone"
+    >
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/demo_primary"/>
+      android:id="@+id/navigation_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:menu="@menu/demo_primary"
+      />
   </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

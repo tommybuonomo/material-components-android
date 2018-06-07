@@ -90,6 +90,9 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
   public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
   public static final int FAB_ALIGNMENT_MODE_END = 1;
 
+  public static final int CRADLE_MODE_ROUND = 0;
+  public static final int CRADLE_MODE_CUT = 1;
+
   /**
    * The fabAlignmentMode determines the horizontal positioning of the cradle and the FAB which can
    * be centered or aligned to the end.
@@ -138,6 +141,7 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
         a.getDimensionPixelOffset(R.styleable.BottomAppBar_fabCradleRoundedCornerRadius, 0);
     float fabVerticalOffset =
         a.getDimensionPixelOffset(R.styleable.BottomAppBar_fabCradleVerticalOffset, 0);
+    int cradleMode = a.getInt(R.styleable.BottomAppBar_cradleMode, CRADLE_MODE_ROUND);
     fabAttached = a.getBoolean(R.styleable.BottomAppBar_fabAttached, true);
     fabAlignmentMode =
         a.getInt(R.styleable.BottomAppBar_fabAlignmentMode, FAB_ALIGNMENT_MODE_CENTER);
@@ -149,7 +153,8 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
         getResources().getDimensionPixelOffset(R.dimen.mtrl_bottomappbar_fabOffsetEndMode);
 
     topEdgeTreatment =
-        new BottomAppBarTopEdgeTreatment(fabCradleMargin, fabCornerRadius, fabVerticalOffset);
+        new BottomAppBarTopEdgeTreatment(
+            fabCradleMargin, fabCornerRadius, fabVerticalOffset, cradleMode);
     ShapePathModel appBarModel = new ShapePathModel();
     appBarModel.setTopEdge(topEdgeTreatment);
     materialShapeDrawable = new MaterialShapeDrawable(appBarModel);
@@ -446,7 +451,8 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
       set.playSequentially(fadeOut, fadeIn);
       animators.add(set);
     } else if (actionMenuView.getAlpha() < 1) {
-      // If the previous animation was cancelled in the middle and now we're deciding we don't need
+      // If the previous animation was cancelled in the middle and now we're deciding we don't
+      // need
       // fade the MenuView away and back in, we need to ensure the MenuView is visible
       animators.add(fadeIn);
     }
@@ -715,7 +721,8 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
     }
 
     private boolean updateFabPositionAndVisibility(FloatingActionButton fab, BottomAppBar child) {
-      // Set the initial position of the FloatingActionButton with the BottomAppBar vertical offset.
+      // Set the initial position of the FloatingActionButton with the BottomAppBar vertical
+      // offset.
       CoordinatorLayout.LayoutParams fabLayoutParams =
           (CoordinatorLayout.LayoutParams) fab.getLayoutParams();
       fabLayoutParams.anchorGravity = Gravity.CENTER;
@@ -813,6 +820,7 @@ public class BottomAppBar extends Toolbar implements AttachedBehavior {
   }
 
   static class SavedState extends AbsSavedState {
+
     @FabAlignmentMode int fabAlignmentMode;
     boolean fabAttached;
 
